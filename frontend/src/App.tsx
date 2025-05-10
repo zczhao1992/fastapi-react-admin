@@ -9,7 +9,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import "./App.css";
 
 function App() {
   const invoices = [
