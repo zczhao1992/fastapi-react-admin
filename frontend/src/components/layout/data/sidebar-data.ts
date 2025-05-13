@@ -104,11 +104,11 @@ export const sidebarData: SidebarData = {
             },
             {
               title: "Sign Up",
-              url: "/",
+              url: "/sign-up",
             },
             {
               title: "Forgot Password",
-              url: "/",
+              url: "/forgot-password",
             },
             {
               title: "OTP",
