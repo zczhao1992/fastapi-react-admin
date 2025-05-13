@@ -4,6 +4,9 @@ import { RouterProvider, createRouter } from "@tanstack/react-router";
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen";
 import { ThemeProvider } from "./context/theme-context";
+import { LanguageProvider } from './context/language-context'
+import './i18n/index'
+
 import "./index.css";
 
 // Create a new router instance
@@ -22,8 +25,10 @@ declare module "@tanstack/react-router" {
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <LanguageProvider defaultLanguage="zh" storageKey="vite-language">
+      <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </LanguageProvider>
   </StrictMode>
 );
