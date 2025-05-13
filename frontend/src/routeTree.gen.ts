@@ -14,7 +14,9 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as AuthenticatedRouteImport } from './routes/_authenticated/route'
 import { Route as AuthenticatedIndexImport } from './routes/_authenticated/index'
 import { Route as authSignUpImport } from './routes/(auth)/sign-up'
+import { Route as authSignIn2Import } from './routes/(auth)/sign-in-2'
 import { Route as authSignInImport } from './routes/(auth)/sign-in'
+import { Route as authOtpImport } from './routes/(auth)/otp'
 import { Route as authForgotPasswordImport } from './routes/(auth)/forgot-password'
 import { Route as AuthenticatedBasictableIndexImport } from './routes/_authenticated/basictable/index'
 
@@ -37,9 +39,21 @@ const authSignUpRoute = authSignUpImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const authSignIn2Route = authSignIn2Import.update({
+  id: '/(auth)/sign-in-2',
+  path: '/sign-in-2',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const authSignInRoute = authSignInImport.update({
   id: '/(auth)/sign-in',
   path: '/sign-in',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const authOtpRoute = authOtpImport.update({
+  id: '/(auth)/otp',
+  path: '/otp',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -74,11 +88,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof authForgotPasswordImport
       parentRoute: typeof rootRoute
     }
+    '/(auth)/otp': {
+      id: '/(auth)/otp'
+      path: '/otp'
+      fullPath: '/otp'
+      preLoaderRoute: typeof authOtpImport
+      parentRoute: typeof rootRoute
+    }
     '/(auth)/sign-in': {
       id: '/(auth)/sign-in'
       path: '/sign-in'
       fullPath: '/sign-in'
       preLoaderRoute: typeof authSignInImport
+      parentRoute: typeof rootRoute
+    }
+    '/(auth)/sign-in-2': {
+      id: '/(auth)/sign-in-2'
+      path: '/sign-in-2'
+      fullPath: '/sign-in-2'
+      preLoaderRoute: typeof authSignIn2Import
       parentRoute: typeof rootRoute
     }
     '/(auth)/sign-up': {
@@ -123,7 +151,9 @@ const AuthenticatedRouteRouteWithChildren =
 export interface FileRoutesByFullPath {
   '': typeof AuthenticatedRouteRouteWithChildren
   '/forgot-password': typeof authForgotPasswordRoute
+  '/otp': typeof authOtpRoute
   '/sign-in': typeof authSignInRoute
+  '/sign-in-2': typeof authSignIn2Route
   '/sign-up': typeof authSignUpRoute
   '/': typeof AuthenticatedIndexRoute
   '/basictable': typeof AuthenticatedBasictableIndexRoute
@@ -131,7 +161,9 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/forgot-password': typeof authForgotPasswordRoute
+  '/otp': typeof authOtpRoute
   '/sign-in': typeof authSignInRoute
+  '/sign-in-2': typeof authSignIn2Route
   '/sign-up': typeof authSignUpRoute
   '/': typeof AuthenticatedIndexRoute
   '/basictable': typeof AuthenticatedBasictableIndexRoute
@@ -141,7 +173,9 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/(auth)/forgot-password': typeof authForgotPasswordRoute
+  '/(auth)/otp': typeof authOtpRoute
   '/(auth)/sign-in': typeof authSignInRoute
+  '/(auth)/sign-in-2': typeof authSignIn2Route
   '/(auth)/sign-up': typeof authSignUpRoute
   '/_authenticated/': typeof AuthenticatedIndexRoute
   '/_authenticated/basictable/': typeof AuthenticatedBasictableIndexRoute
@@ -152,17 +186,28 @@ export interface FileRouteTypes {
   fullPaths:
     | ''
     | '/forgot-password'
+    | '/otp'
     | '/sign-in'
+    | '/sign-in-2'
     | '/sign-up'
     | '/'
     | '/basictable'
   fileRoutesByTo: FileRoutesByTo
-  to: '/forgot-password' | '/sign-in' | '/sign-up' | '/' | '/basictable'
+  to:
+    | '/forgot-password'
+    | '/otp'
+    | '/sign-in'
+    | '/sign-in-2'
+    | '/sign-up'
+    | '/'
+    | '/basictable'
   id:
     | '__root__'
     | '/_authenticated'
     | '/(auth)/forgot-password'
+    | '/(auth)/otp'
     | '/(auth)/sign-in'
+    | '/(auth)/sign-in-2'
     | '/(auth)/sign-up'
     | '/_authenticated/'
     | '/_authenticated/basictable/'
@@ -172,14 +217,18 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   authForgotPasswordRoute: typeof authForgotPasswordRoute
+  authOtpRoute: typeof authOtpRoute
   authSignInRoute: typeof authSignInRoute
+  authSignIn2Route: typeof authSignIn2Route
   authSignUpRoute: typeof authSignUpRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   authForgotPasswordRoute: authForgotPasswordRoute,
+  authOtpRoute: authOtpRoute,
   authSignInRoute: authSignInRoute,
+  authSignIn2Route: authSignIn2Route,
   authSignUpRoute: authSignUpRoute,
 }
 
@@ -195,7 +244,9 @@ export const routeTree = rootRoute
       "children": [
         "/_authenticated",
         "/(auth)/forgot-password",
+        "/(auth)/otp",
         "/(auth)/sign-in",
+        "/(auth)/sign-in-2",
         "/(auth)/sign-up"
       ]
     },
@@ -209,8 +260,14 @@ export const routeTree = rootRoute
     "/(auth)/forgot-password": {
       "filePath": "(auth)/forgot-password.tsx"
     },
+    "/(auth)/otp": {
+      "filePath": "(auth)/otp.tsx"
+    },
     "/(auth)/sign-in": {
       "filePath": "(auth)/sign-in.tsx"
+    },
+    "/(auth)/sign-in-2": {
+      "filePath": "(auth)/sign-in-2.tsx"
     },
     "/(auth)/sign-up": {
       "filePath": "(auth)/sign-up.tsx"

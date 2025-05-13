@@ -100,7 +100,7 @@ export const sidebarData: SidebarData = {
             },
             {
               title: "Sign In (2 Col)",
-              url: "/",
+              url: "/sign-in-2",
             },
             {
               title: "Sign Up",
@@ -112,7 +112,7 @@ export const sidebarData: SidebarData = {
             },
             {
               title: "OTP",
-              url: "/",
+              url: "/otp",
             },
           ],
         },
