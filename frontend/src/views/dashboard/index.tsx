@@ -14,8 +14,11 @@ import {
 } from "@/components/ui/card";
 import { Overview } from "./components/overview";
 import { RecentSales } from "./components/recent-sales";
+import { useTranslation } from 'react-i18next';
 
 export default function Dashboard() {
+  const { t } = useTranslation();
+
   return (
     <>
       <Header fixed>
@@ -29,7 +32,7 @@ export default function Dashboard() {
 
       <Main>
         <div className="mb-2 flex items-center justify-between space-y-2">
-          <h1 className="text-2xl font-bold tracking-tight">仪表板</h1>
+          <h1 className="text-2xl font-bold tracking-tight">{t('dashboard')}</h1>
           <div className="flex items-center space-x-2">
             <Button>下载</Button>
           </div>

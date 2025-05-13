@@ -3,5 +3,8 @@
     "light": "浅色",
     "dark": "暗色",
     "system": "系统默认",
-    "toggle-theme": "切换主题"
+    "toggle-theme": "切换主题",
+    "dashboard": "仪表板",
+    "general": "通用功能",
+    "basictable": "基础表格"
 }

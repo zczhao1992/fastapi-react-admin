@@ -3,5 +3,8 @@
     "light": "light",
     "dark": "dark",
     "system": "System",
-    "toggle-theme": "Toggle theme"
+    "toggle-theme": "Toggle theme",
+    "dashboard": "Dashboard",
+    "general": "General",
+    "basictable": "Basictable"
 }

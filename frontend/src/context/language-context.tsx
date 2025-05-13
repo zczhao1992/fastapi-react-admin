@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import i18n from '@/i18n';
 
 type Language = "zh" | "en";
 
@@ -32,6 +33,7 @@ export function LanguageProvider({
 
     const setLanguage = (language: Language) => {
         localStorage.setItem(storageKey, language);
+        i18n.changeLanguage(language); 
         _setLanguage(language);
     };
 
