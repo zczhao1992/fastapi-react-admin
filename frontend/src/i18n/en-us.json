@@ -6,5 +6,7 @@
     "toggle-theme": "Toggle theme",
     "dashboard": "Dashboard",
     "general": "General",
-    "basictable": "Basictable"
+    "basictable": "Basictable",
+    "pages": "Pages",
+    "auth": "Auth"
 }

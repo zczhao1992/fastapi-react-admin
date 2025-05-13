@@ -6,5 +6,7 @@
     "toggle-theme": "切换主题",
     "dashboard": "仪表板",
     "general": "通用功能",
-    "basictable": "基础表格"
+    "basictable": "基础表格",
+    "pages": "基础页面",
+    "auth": "登录注册"
 }

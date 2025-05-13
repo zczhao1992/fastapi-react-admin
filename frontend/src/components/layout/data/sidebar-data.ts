@@ -93,10 +93,10 @@ export const sidebarData = (): SidebarData => {
         ],
       },
       {
-        title: "Pages",
+        title: t("pages"),
         items: [
           {
-            title: "Auth",
+            title: t("auth"),
             icon: IconLockAccess,
             items: [
               {
@@ -127,27 +127,27 @@ export const sidebarData = (): SidebarData => {
             items: [
               {
                 title: "Unauthorized",
-                url: "/",
+                url: "/401",
                 icon: IconLock,
               },
               {
                 title: "Forbidden",
-                url: "/",
+                url: "/403",
                 icon: IconUserOff,
               },
               {
                 title: "Not Found",
-                url: "/",
+                url: "/404",
                 icon: IconError404,
               },
               {
                 title: "Internal Server Error",
-                url: "/",
+                url: "/500",
                 icon: IconServerOff,
               },
               {
                 title: "Maintenance Error",
-                url: "/",
+                url: "/503",
                 icon: IconBarrierBlock,
               },
             ],
