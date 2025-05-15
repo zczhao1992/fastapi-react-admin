@@ -8,5 +8,8 @@
     "general": "通用功能",
     "basictable": "基础表格",
     "pages": "基础页面",
-    "auth": "登录注册"
+    "auth": "登录注册页面",
+    "errors": "错误页面",
+    "other": "其他",
+    "settings": "设置"
 }

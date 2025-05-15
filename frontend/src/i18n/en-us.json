@@ -8,5 +8,8 @@
     "general": "General",
     "basictable": "Basictable",
     "pages": "Pages",
-    "auth": "Auth"
+    "auth": "Auth",
+    "errors": "Errors",
+    "other": "Other",
+    "settings": "Settings"
 }

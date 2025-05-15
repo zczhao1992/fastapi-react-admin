@@ -23,6 +23,7 @@ import { Route as authSignIn2Import } from './routes/(auth)/sign-in-2'
 import { Route as authSignInImport } from './routes/(auth)/sign-in'
 import { Route as authOtpImport } from './routes/(auth)/otp'
 import { Route as authForgotPasswordImport } from './routes/(auth)/forgot-password'
+import { Route as AuthenticatedSettingsIndexImport } from './routes/_authenticated/settings/index'
 import { Route as AuthenticatedBasictableIndexImport } from './routes/_authenticated/basictable/index'
 
 // Create/Update Routes
@@ -97,6 +98,14 @@ const authForgotPasswordRoute = authForgotPasswordImport.update({
   path: '/forgot-password',
   getParentRoute: () => rootRoute,
 } as any)
+
+const AuthenticatedSettingsIndexRoute = AuthenticatedSettingsIndexImport.update(
+  {
+    id: '/settings/',
+    path: '/settings/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any,
+)
 
 const AuthenticatedBasictableIndexRoute =
   AuthenticatedBasictableIndexImport.update({
@@ -200,6 +209,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedBasictableIndexImport
       parentRoute: typeof AuthenticatedRouteImport
     }
+    '/_authenticated/settings/': {
+      id: '/_authenticated/settings/'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AuthenticatedSettingsIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
   }
 }
 
@@ -208,11 +224,13 @@ declare module '@tanstack/react-router' {
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
   AuthenticatedBasictableIndexRoute: typeof AuthenticatedBasictableIndexRoute
+  AuthenticatedSettingsIndexRoute: typeof AuthenticatedSettingsIndexRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
   AuthenticatedBasictableIndexRoute: AuthenticatedBasictableIndexRoute,
+  AuthenticatedSettingsIndexRoute: AuthenticatedSettingsIndexRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
@@ -232,6 +250,7 @@ export interface FileRoutesByFullPath {
   '/503': typeof errors503Route
   '/': typeof AuthenticatedIndexRoute
   '/basictable': typeof AuthenticatedBasictableIndexRoute
+  '/settings': typeof AuthenticatedSettingsIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -247,6 +266,7 @@ export interface FileRoutesByTo {
   '/503': typeof errors503Route
   '/': typeof AuthenticatedIndexRoute
   '/basictable': typeof AuthenticatedBasictableIndexRoute
+  '/settings': typeof AuthenticatedSettingsIndexRoute
 }
 
 export interface FileRoutesById {
@@ -264,6 +284,7 @@ export interface FileRoutesById {
   '/(errors)/503': typeof errors503Route
   '/_authenticated/': typeof AuthenticatedIndexRoute
   '/_authenticated/basictable/': typeof AuthenticatedBasictableIndexRoute
+  '/_authenticated/settings/': typeof AuthenticatedSettingsIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -282,6 +303,7 @@ export interface FileRouteTypes {
     | '/503'
     | '/'
     | '/basictable'
+    | '/settings'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/forgot-password'
@@ -296,6 +318,7 @@ export interface FileRouteTypes {
     | '/503'
     | '/'
     | '/basictable'
+    | '/settings'
   id:
     | '__root__'
     | '/_authenticated'
@@ -311,6 +334,7 @@ export interface FileRouteTypes {
     | '/(errors)/503'
     | '/_authenticated/'
     | '/_authenticated/basictable/'
+    | '/_authenticated/settings/'
   fileRoutesById: FileRoutesById
 }
 
@@ -369,7 +393,8 @@ export const routeTree = rootRoute
       "filePath": "_authenticated/route.tsx",
       "children": [
         "/_authenticated/",
-        "/_authenticated/basictable/"
+        "/_authenticated/basictable/",
+        "/_authenticated/settings/"
       ]
     },
     "/(auth)/forgot-password": {
@@ -408,6 +433,10 @@ export const routeTree = rootRoute
     },
     "/_authenticated/basictable/": {
       "filePath": "_authenticated/basictable/index.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/settings/": {
+      "filePath": "_authenticated/settings/index.tsx",
       "parent": "/_authenticated"
     }
   }

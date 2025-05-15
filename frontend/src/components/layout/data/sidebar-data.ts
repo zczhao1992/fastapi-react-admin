@@ -1,23 +1,18 @@
 import {
   IconBarrierBlock,
-  IconBrowserCheck,
   IconBug,
-  IconChecklist,
+  // IconChecklist,
   IconError404,
-  IconHelp,
+  // IconHelp,
   IconLayoutDashboard,
   IconLock,
   IconLockAccess,
-  IconMessages,
-  IconNotification,
-  IconPackages,
-  IconPalette,
+  // IconMessages,
+  // IconPackages,
   IconServerOff,
   IconSettings,
-  IconTool,
-  IconUserCog,
   IconUserOff,
-  IconUsers,
+  // IconUsers,
 } from "@tabler/icons-react";
 import {
   Table,
@@ -69,27 +64,27 @@ export const sidebarData = (): SidebarData => {
             url: "/basictable",
             icon: Table,
           },
-          {
-            title: "Tasks",
-            url: "/",
-            icon: IconChecklist,
-          },
-          {
-            title: "Apps",
-            url: "/",
-            icon: IconPackages,
-          },
-          {
-            title: "Chats",
-            url: "/",
-            badge: "3",
-            icon: IconMessages,
-          },
-          {
-            title: "Users",
-            url: "/",
-            icon: IconUsers,
-          },
+          // {
+          //   title: "Tasks",
+          //   url: "/",
+          //   icon: IconChecklist,
+          // },
+          // {
+          //   title: "Apps",
+          //   url: "/",
+          //   icon: IconPackages,
+          // },
+          // {
+          //   title: "Chats",
+          //   url: "/",
+          //   badge: "3",
+          //   icon: IconMessages,
+          // },
+          // {
+          //   title: "Users",
+          //   url: "/",
+          //   icon: IconUsers,
+          // },
         ],
       },
       {
@@ -122,7 +117,7 @@ export const sidebarData = (): SidebarData => {
             ],
           },
           {
-            title: "Errors",
+            title: t("errors"),
             icon: IconBug,
             items: [
               {
@@ -155,43 +150,39 @@ export const sidebarData = (): SidebarData => {
         ],
       },
       {
-        title: "Other",
+        title: t("other"),
         items: [
           {
-            title: "Settings",
+            title: t("settings"),
+            url: "/settings",
             icon: IconSettings,
-            items: [
-              {
-                title: "Profile",
-                url: "/",
-                icon: IconUserCog,
-              },
-              {
-                title: "Account",
-                url: "/",
-                icon: IconTool,
-              },
-              {
-                title: "Appearance",
-                url: "/",
-                icon: IconPalette,
-              },
-              {
-                title: "Notifications",
-                url: "/",
-                icon: IconNotification,
-              },
-              {
-                title: "Display",
-                url: "/",
-                icon: IconBrowserCheck,
-              },
-            ],
-          },
-          {
-            title: "Help Center",
-            url: "/",
-            icon: IconHelp,
+            // items: [
+            //   {
+            //     title: "Profile",
+            //     url: "/",
+            //     icon: IconUserCog,
+            //   },
+            //   {
+            //     title: "Account",
+            //     url: "/",
+            //     icon: IconTool,
+            //   },
+            //   {
+            //     title: "Appearance",
+            //     url: "/",
+            //     icon: IconPalette,
+            //   },
+            //   {
+            //     title: "Notifications",
+            //     url: "/",
+            //     icon: IconNotification,
+            //   },
+            //   {
+            //     title: "Display",
+            //     url: "/",
+            //     icon: IconBrowserCheck,
+            //   },
+            // ],
           },
         ],
       },
