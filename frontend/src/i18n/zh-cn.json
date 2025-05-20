@@ -11,5 +11,6 @@
     "auth": "登录注册页面",
     "errors": "错误页面",
     "other": "其他",
-    "settings": "设置"
+    "settings": "设置",
+    "tasks": "任务"
 }

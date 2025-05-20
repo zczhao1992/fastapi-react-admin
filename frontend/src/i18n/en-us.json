@@ -11,5 +11,6 @@
     "auth": "Auth",
     "errors": "Errors",
     "other": "Other",
-    "settings": "Settings"
+    "settings": "Settings",
+    "tasks": "Tasks"
 }

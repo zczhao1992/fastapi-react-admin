@@ -1,7 +1,7 @@
 import {
   IconBarrierBlock,
   IconBug,
-  // IconChecklist,
+  IconChecklist,
   IconError404,
   // IconHelp,
   IconLayoutDashboard,
@@ -64,11 +64,11 @@ export const sidebarData = (): SidebarData => {
             url: "/basictable",
             icon: Table,
           },
-          // {
-          //   title: "Tasks",
-          //   url: "/",
-          //   icon: IconChecklist,
-          // },
+          {
+            title: t("tasks"),
+            url: "/tasks",
+            icon: IconChecklist,
+          },
           // {
           //   title: "Apps",
           //   url: "/",

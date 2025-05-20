@@ -24,6 +24,7 @@ import { Route as authSignInImport } from './routes/(auth)/sign-in'
 import { Route as authOtpImport } from './routes/(auth)/otp'
 import { Route as authForgotPasswordImport } from './routes/(auth)/forgot-password'
 import { Route as AuthenticatedSettingsRouteImport } from './routes/_authenticated/settings/route'
+import { Route as AuthenticatedTasksIndexImport } from './routes/_authenticated/tasks/index'
 import { Route as AuthenticatedSettingsIndexImport } from './routes/_authenticated/settings/index'
 import { Route as AuthenticatedBasictableIndexImport } from './routes/_authenticated/basictable/index'
 
@@ -107,6 +108,12 @@ const AuthenticatedSettingsRouteRoute = AuthenticatedSettingsRouteImport.update(
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any,
 )
+
+const AuthenticatedTasksIndexRoute = AuthenticatedTasksIndexImport.update({
+  id: '/tasks/',
+  path: '/tasks/',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 
 const AuthenticatedSettingsIndexRoute = AuthenticatedSettingsIndexImport.update(
   {
@@ -232,6 +239,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedSettingsIndexImport
       parentRoute: typeof AuthenticatedSettingsRouteImport
     }
+    '/_authenticated/tasks/': {
+      id: '/_authenticated/tasks/'
+      path: '/tasks'
+      fullPath: '/tasks'
+      preLoaderRoute: typeof AuthenticatedTasksIndexImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
   }
 }
 
@@ -255,12 +269,14 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedSettingsRouteRoute: typeof AuthenticatedSettingsRouteRouteWithChildren
   AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
   AuthenticatedBasictableIndexRoute: typeof AuthenticatedBasictableIndexRoute
+  AuthenticatedTasksIndexRoute: typeof AuthenticatedTasksIndexRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedSettingsRouteRoute: AuthenticatedSettingsRouteRouteWithChildren,
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
   AuthenticatedBasictableIndexRoute: AuthenticatedBasictableIndexRoute,
+  AuthenticatedTasksIndexRoute: AuthenticatedTasksIndexRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
@@ -282,6 +298,7 @@ export interface FileRoutesByFullPath {
   '/': typeof AuthenticatedIndexRoute
   '/basictable': typeof AuthenticatedBasictableIndexRoute
   '/settings/': typeof AuthenticatedSettingsIndexRoute
+  '/tasks': typeof AuthenticatedTasksIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -298,6 +315,7 @@ export interface FileRoutesByTo {
   '/': typeof AuthenticatedIndexRoute
   '/basictable': typeof AuthenticatedBasictableIndexRoute
   '/settings': typeof AuthenticatedSettingsIndexRoute
+  '/tasks': typeof AuthenticatedTasksIndexRoute
 }
 
 export interface FileRoutesById {
@@ -317,6 +335,7 @@ export interface FileRoutesById {
   '/_authenticated/': typeof AuthenticatedIndexRoute
   '/_authenticated/basictable/': typeof AuthenticatedBasictableIndexRoute
   '/_authenticated/settings/': typeof AuthenticatedSettingsIndexRoute
+  '/_authenticated/tasks/': typeof AuthenticatedTasksIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -337,6 +356,7 @@ export interface FileRouteTypes {
     | '/'
     | '/basictable'
     | '/settings/'
+    | '/tasks'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/forgot-password'
@@ -352,6 +372,7 @@ export interface FileRouteTypes {
     | '/'
     | '/basictable'
     | '/settings'
+    | '/tasks'
   id:
     | '__root__'
     | '/_authenticated'
@@ -369,6 +390,7 @@ export interface FileRouteTypes {
     | '/_authenticated/'
     | '/_authenticated/basictable/'
     | '/_authenticated/settings/'
+    | '/_authenticated/tasks/'
   fileRoutesById: FileRoutesById
 }
 
@@ -428,7 +450,8 @@ export const routeTree = rootRoute
       "children": [
         "/_authenticated/settings",
         "/_authenticated/",
-        "/_authenticated/basictable/"
+        "/_authenticated/basictable/",
+        "/_authenticated/tasks/"
       ]
     },
     "/_authenticated/settings": {
@@ -479,6 +502,10 @@ export const routeTree = rootRoute
     "/_authenticated/settings/": {
       "filePath": "_authenticated/settings/index.tsx",
       "parent": "/_authenticated/settings"
+    },
+    "/_authenticated/tasks/": {
+      "filePath": "_authenticated/tasks/index.tsx",
+      "parent": "/_authenticated"
     }
   }
 }
