@@ -1,5 +1,5 @@
 from typing import Union
-from fastapi import FastAPI
+from fastapi import Body, FastAPI
 
 from pydantic import BaseModel
 from enum import Enum
@@ -57,6 +57,42 @@ def get_model(model_name: ModelName):
         return {"model_name": model_name, "message": "LeCNN all the images"}
 
     return {"model_name": model_name, "message": "Have some residuals"}
+
+
+arr = [
+    {
+        "id": "123231",
+        "title": "ddawdaw",
+        "age": 21
+    },
+    {
+        "id": "432213",
+        "title": "fergfr",
+        "age": 53
+    },
+    {
+        "id": "432421",
+        "title": "greg",
+        "age": 522
+    },
+]
+
+
+@app.get('/books')
+def get_books():
+    return arr
+
+
+@app.get('/book/{book_id}')
+def get_book(book_id: str, book_title: str):
+    for book in arr:
+        if book.get("id") == book_id and book.get("title") == book_title:
+            return book
+
+
+@app.post('/book/')
+def create_book(new_book=Body()):
+    arr.append(new_book)
 
 
 if __name__ == "__main__":
