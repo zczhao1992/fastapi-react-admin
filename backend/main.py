@@ -3,9 +3,9 @@ from fastapi import Body, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from enum import Enum
-# import uvicorn
+import uvicorn
 # import asyncio
-
+import os
 
 app = FastAPI()
 
@@ -103,6 +103,8 @@ def create_book(new_book=Body()):
     arr.append(new_book)
 
 
-# if __name__ == "__main__":
+if __name__ == "__main__":
     # uvicorn main:app --reload
+    uvicorn.run("main:app", host="0.0.0.0", port=os.getenv(
+        "PORT", default=5000), log_level="info")
     # uvicorn.run("example:app", host="127.0.0.1", port=8000, log_level="info")
