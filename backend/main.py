@@ -3,8 +3,8 @@ from fastapi import Body, FastAPI
 
 from pydantic import BaseModel
 from enum import Enum
-import uvicorn
-import asyncio
+# import uvicorn
+# import asyncio
 
 
 app = FastAPI()
@@ -95,6 +95,6 @@ def create_book(new_book=Body()):
     arr.append(new_book)
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
     # uvicorn main:app --reload
-    uvicorn.run("example:app", host="127.0.0.1", port=8000, log_level="info")
+    # uvicorn.run("example:app", host="127.0.0.1", port=8000, log_level="info")
