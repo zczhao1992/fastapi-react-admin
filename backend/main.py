@@ -1,6 +1,6 @@
 from typing import Union
 from fastapi import Body, FastAPI
-
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from enum import Enum
 # import uvicorn
@@ -8,6 +8,14 @@ from enum import Enum
 
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
 
 
 class ModelName(str, Enum):
